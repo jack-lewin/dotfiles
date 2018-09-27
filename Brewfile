@@ -4,7 +4,6 @@ tap 'homebrew/bundle'
 
 brew 'coreutils'
 brew 'openssl'
-brew 'node'
 brew 'readline'
 brew 'postgresql'
 brew 'ruby-build'
