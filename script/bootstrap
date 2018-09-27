@@ -152,10 +152,18 @@ then
   fi
 fi
 
+
+# Fix yarn permissions
+sudo chown -R $USER:$GROUP ~/.npm
+sudo chown -R $USER:$GROUP ~/.config
+
+
 # Install oh-my-zsh
 echo ' Installing oh-my-zsh'
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-
+# Remove default oh-my-zsh zshrc; restore backup
+rm ~/.zshrc
+mv ~/.zshrc.pre-oh-my-zsh ~/.zshrc
 
 echo ''
 echo '  All installed!'

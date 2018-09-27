@@ -50,5 +50,11 @@ bindkey "^[[A" up-line-or-beginning-search # Up
 bindkey "^[[B" down-line-or-beginning-search # Down
 
 plugins=(
+  git,
   zsh-nvm
 )
+
+
+# oh-my-zsh
+ZSH_THEME="robbyrussell"
+#source /Users/jack/.oh-my-zsh/oh-my-zsh.sh
