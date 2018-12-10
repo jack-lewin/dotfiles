@@ -35,3 +35,7 @@ defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
 
 # Disable "automatically rearrange Spaces based on most recent use"
 defaults write com.apple.dock mru-spaces 0
+
+# Touch bar arrangement
+# Options: https://blog.eriknicolasgomez.com/2016/11/28/managing-or-setting-the-mini-touchbar-control-strip/#how-to-configure-the-control-strip
+defaults write com.apple.controlstrip MiniCustomized '("com.apple.system.screencapture", "com.apple.system.brightness", "com.apple.system.volume", "com.apple.system.mute")'
