@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+
+unless ARGV.length == 0
+  output = ARGV.join(' ').split('').map { |l| ":bunting_#{l == ' ' ? 'teal' : l}:" }.join
+  `echo #{output} | pbcopy`
+else
+  puts "Usage: bunting [string]"
+end
