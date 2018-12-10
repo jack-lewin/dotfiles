@@ -1,0 +1,12 @@
+#!/bin/sh
+#
+# A very slightly quicker way to soft-reset the last X commits.
+#
+# $1 - The number of commits to soft-reset.
+#
+# Examples
+#
+#   git rs 1
+#
+
+git reset --soft HEAD~$1
