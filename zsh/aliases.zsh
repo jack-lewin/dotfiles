@@ -1,4 +1,3 @@
-alias reload!='. ~/.zshrc'
+alias alias?='cat ~/.dotfiles/zsh/aliases.zsh && echo "\n=====\n" && cat ~/.dotfiles/zsh/private.zsh'
 
-# One day I'll remember my git aliases
-alias git?='cat ~/.dotfiles/git/aliases.zsh'
+alias reload!='. ~/.zshrc'
