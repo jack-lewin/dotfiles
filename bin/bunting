@@ -5,4 +5,5 @@ unless ARGV.length == 0
   `echo #{output} | pbcopy`
 else
   puts "Usage: bunting [string]"
+  puts "Copies the bunting emoji for $YOUR_STRING into the clipboard"
 end

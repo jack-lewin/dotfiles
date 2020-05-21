@@ -12,12 +12,14 @@ time_left=$(echo $battstat |
   awk -F"; " '{print $3}' |
   cut -d' ' -f1
 )
+time_left="$time_left remaining"
 
 if [[ $(pmset -g ac) == *"No adapter attached."* ]]
 then
   emoji='🔋'
 else
   emoji='🔌'
+  time_left="$time_left (charging)"
 fi
 
 if [[ $time_left == *"(no"* || $time_left == *"not"* ]]
@@ -30,4 +32,4 @@ then
   time_left='⚡️'
 fi
 
-printf "$emoji  $time_left"
+echo "$emoji  $time_left"

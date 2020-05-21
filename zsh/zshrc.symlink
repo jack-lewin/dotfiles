@@ -60,10 +60,6 @@ ZSH_THEME="robbyrussell"
 # source ~/.oh-my-zsh/oh-my-zsh.sh
 
 
-# init rbenv
-eval "$(rbenv init -)"
-
-
 
 # install zlib so that `pyenv install 3.7.0` works
 # https://github.com/jiansoung/issues-list/issues/13
@@ -80,5 +76,8 @@ export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
 
 
+
+# init rbenv
+eval "$(rbenv init -)"
 
 
