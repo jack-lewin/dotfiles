@@ -9,6 +9,7 @@ brew 'postgresql'
 brew 'ruby-build'
 brew 'rbenv'
 brew 'roundup'
+brew 'tmux'
 brew 'wget'
 brew 'yarn', args: ['without-node']
 
