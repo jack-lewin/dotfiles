@@ -39,3 +39,7 @@ defaults write com.apple.dock mru-spaces 0
 # Touch bar arrangement
 # Options: https://blog.eriknicolasgomez.com/2016/11/28/managing-or-setting-the-mini-touchbar-control-strip/#how-to-configure-the-control-strip
 defaults write com.apple.controlstrip MiniCustomized '("com.apple.system.screencapture", "com.apple.system.brightness", "com.apple.system.volume", "com.apple.system.mute")'
+
+# Fix font antialiasing on Mojave
+# (this is particularly noticeable on Firefox tabs in dark mode)
+defaults write -g CGFontRenderingFontSmoothingDisabled -bool NO
