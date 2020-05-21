@@ -1,0 +1,12 @@
+#!/bin/bash
+#
+# work-journal
+#
+# Update today's work journal.
+# This will open a file with today's date (or create one if necessary) in vim.
+#
+
+journal_dir="~/work-journal"
+journal_filename=$(date +"%d-%m-%Y")
+
+vim $journal_dir/$journal_filename.txt
