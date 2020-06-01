@@ -6,7 +6,21 @@
 # This will open a file with today's date (or create one if necessary) in vim.
 #
 
-journal_dir="~/work-journal"
+journal_dir=~/work-journal
 journal_filename=$(date +"%d-%m-%Y")
+journal_file=$journal_dir/$journal_filename.md
 
-vim $journal_dir/$journal_filename.txt
+touch $journal_file
+
+cat > $journal_file <<- EOM
+# Progress today
+
+# What didn't I finish?
+
+# Do I need to follow up with anyone?
+
+# Learnings
+
+EOM
+
+vim $journal_file
