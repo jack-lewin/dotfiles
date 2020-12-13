@@ -1,0 +1,60 @@
+#!/usr/bin/env ruby
+
+# Do not run as root!
+
+# from https://gist.github.com/caccialdo/7c82bd80883d7ad577d98a196a8e79b3
+#
+# !!! macOS specific
+#
+# Refer to https://github.com/puma/puma-dev
+# to find the corresponding Linux commands.
+#
+
+# Prepare directory tree and permissions
+system "mkdir -p ~/Library/LaunchAgents ~/.puma-dev"
+system "chown $USER ~/Library/LaunchAgents ~/.puma-dev"
+
+domains = [
+  { domain: "consumer-component-library.deliveroo", tld: "dev", destination: "5000" },
+  { domain: "deliveroo.ae", tld: "dev", destination: "3000" },
+  { domain: "deliveroo.be", tld: "dev", destination: "3000" },
+  { domain: "deliveroo.co.il", tld: "dev", destination: "3000" },
+  { domain: "deliveroo.co.uk", tld: "dev", destination: "3000" },
+  { domain: "deliveroo.com.au", tld: "dev", destination: "3000" },
+  { domain: "deliveroo.com.kw", tld: "dev", destination: "3000" },
+  { domain: "deliveroo.com.sg", tld: "dev", destination: "3000" },
+  { domain: "deliveroo.de", tld: "dev", destination: "3000" },
+  { domain: "deliveroo.es", tld: "dev", destination: "3000" },
+  { domain: "deliveroo.fr", tld: "dev", destination: "3000" },
+  { domain: "deliveroo.hk", tld: "dev", destination: "3000" },
+  { domain: "deliveroo.ie", tld: "dev", destination: "3000" },
+  { domain: "deliveroo.it", tld: "dev", destination: "3000" },
+  { domain: "deliveroo.nl", tld: "dev", destination: "3000" },
+  { domain: "deliveroo.tw", tld: "dev", destination: "3000" },
+  { domain: "delivery.nandos.co.uk", tld: "dev", destination: "3000" },
+  { domain: "delivery.nandos.ie", tld: "dev", destination: "3000" },
+]
+
+# Colon-separated list of domains that will be "watched" by puma-dev
+puma_domains = domains.map{ |d| "#{d[:domain]}.#{d[:tld]}" }.join(":")
+
+# Stop background puma-dev processes (same as `pkill -USR1 puma-dev`)
+system "puma-dev -stop"
+
+# Delete all puma-dev parameters, and don't start on boot
+system "puma-dev -uninstall -d #{puma_domains}"
+
+# Delete all system's custom DNS resolvers, log and destination files
+system "sudo rm -f /etc/resolver/* ~/Library/Logs/puma-dev.log ~/.puma-dev/*"
+
+# Setup system's custom DNS resolvers (has to be run as root)
+system "sudo puma-dev -setup"
+
+# Configure puma-dev and start on boot
+system "puma-dev -install -d #{puma_domains}"
+
+# Create all puma-dev domain aliases
+domains.map do |d|
+  system "echo \"#{d[:destination]}\" > ~/.puma-dev/#{d[:domain]}"
+end
+
