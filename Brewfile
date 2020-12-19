@@ -11,7 +11,6 @@ brew 'rbenv'
 brew 'roundup'
 brew 'tmux'
 brew 'wget'
-brew 'yarn', args: ['without-node']
 
 cask '1password'
 cask 'cleanmymac'

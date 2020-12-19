@@ -153,10 +153,6 @@ then
 fi
 
 
-# Fix yarn permissions
-sudo chown -R $USER:$GROUP ~/.npm
-sudo chown -R $USER:$GROUP ~/.config
-
 
 # Install oh-my-zsh
 echo ' Installing oh-my-zsh'
