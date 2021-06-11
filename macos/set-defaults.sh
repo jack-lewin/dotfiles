@@ -34,7 +34,7 @@ defaults write com.apple.Safari "com.apple.Safari.ContentPageGroupIdentifier.Web
 defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
 
 # Disable "automatically rearrange Spaces based on most recent use"
-defaults write com.apple.dock mru-spaces 0
+defaults write com.apple.dock mru-spaces -bool false
 
 # Touch bar arrangement
 # Options: https://blog.eriknicolasgomez.com/2016/11/28/managing-or-setting-the-mini-touchbar-control-strip/#how-to-configure-the-control-strip

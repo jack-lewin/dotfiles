@@ -1,5 +1,5 @@
 # one day I'll remember my git aliases
-alias git?='cat ~/.dotfiles/git/aliases.zsh && echo "\n=====\n" && cat ~/.dotfiles/git/private.zsh'
+alias "git?"='cat ~/.dotfiles/git/aliases.zsh && echo "\n=====\n" && cat ~/.dotfiles/git/private.zsh'
 
 alias gl='git pull --prune'
 alias glog="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
