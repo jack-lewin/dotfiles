@@ -1,0 +1,16 @@
+[include]
+    path = ~/.gitconfig.local
+
+[core]
+    editor = vim
+
+[init]
+    defaultBranch = main
+
+[push]
+    default = upstream
+
+[user]
+    name = Jack Lewin
+    email = 14926880+jack-lewin@users.noreply.github.com
+    username = jack-lewin

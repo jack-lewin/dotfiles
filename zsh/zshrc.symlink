@@ -1,0 +1,46 @@
+#
+# global vars
+#
+
+# ths is where oh-my-zsh is installed; it's cloned here in dotfiles/zsh/install.sh and gitignored
+export ZSH=$HOME/code/dotfiles/zsh/oh-my-zsh
+
+# convenience helper as per golang docs
+export GOPATH=$(go env GOPATH)
+
+#
+# zsh config
+#
+
+ZSH_CUSTOM=$HOME/code/dotfiles/zsh/custom
+ZSH_THEME="jack"
+
+plugins=(
+    colored-man-pages
+    extract
+    git
+    # kubectl
+)
+
+#
+# path
+#
+
+path+=("$HOME/code/dotfiles/bin")
+path+=("$GOPATH/bin")
+
+#
+# auto-include dotfiles/system
+#
+
+for f in $HOME/code/dotfiles/system/**.sh; do source $f; done
+
+source $ZSH/oh-my-zsh.sh
+
+#
+# snippet added by nvm installer
+#
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

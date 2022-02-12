@@ -1,0 +1,9 @@
+alias gc='git commit'
+alias gca='git add -A && git commit'
+alias gcm='git commit --amend'
+alias gcmn='git commit --amend --no-edit'
+alias gco='git checkout'
+alias gcb='git checkout -b'
+alias gbc='git copy-branch-name'
+alias gr='git checkout $0 && git pull && git checkout - && git rebase -' # usage: gr main
+alias grs='git reset --soft HEAD~$0' # usage: grs 1

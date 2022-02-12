@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "*.symlink": "shellscript",
+        "gitconfig.*symlink": "properties"
+    }
+}

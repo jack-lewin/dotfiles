@@ -1,0 +1,13 @@
+#!/bin/sh
+
+cd "$(dirname "$0")/.."
+DOTFILES_ROOT=$(pwd -P)
+
+for f in $DOTFILES_ROOT/script/*.sh; do source $f; done
+
+case $1 in
+    init) init ;;
+    reset-dock) $DOTFILES_ROOT/macos/reset_dock.sh ;;
+    update) update ;;
+    *) help ;;
+esac

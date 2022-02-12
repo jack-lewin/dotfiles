@@ -1,0 +1,20 @@
+#!/bin/bash
+#
+# kills the process running on port X
+# usage: `kill-port 3000`
+#
+# `lsof -i :8080` lists the processes running on port 8080
+# unescaped regex: ^(.*) ([0-9]{1,}) (.*)$
+# raw sed command: sed -n -e 's/ESCAPED_REGEX/\2/p'
+
+process_id=$(lsof -i :$1 | sed -n -e 's/^\(.*\) \([0-9]\{1,\}\) \(.*\)$/\2/p')
+
+if [ "$process_id" == "" ]
+then
+  echo "no process running on port $1"
+  exit
+fi
+
+echo "killing process $process_id (running on port $1)"
+
+kill -9 $process_id
