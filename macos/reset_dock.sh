@@ -1,5 +1,5 @@
-cd "$(dirname "$0")/.."
-DOTFILES_ROOT=$(pwd -P)
+#!/bin/sh
+
 source $DOTFILES_ROOT/script/internal/confirm.sh
 
 warning_message="> warning! this will remove all the apps from your Dock

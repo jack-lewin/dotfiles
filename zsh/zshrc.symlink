@@ -1,12 +1,15 @@
+#!/bin/sh
+
 #
 # global vars
 #
 
 # ths is where oh-my-zsh is installed; it's cloned here in dotfiles/zsh/install.sh and gitignored
-export ZSH=$HOME/code/dotfiles/zsh/oh-my-zsh
+export DOTFILES_ROOT=$HOME/code/dotfiles
+export ZSH=$DOTFILES_ROOT/zsh/oh-my-zsh
 
 # convenience helper as per golang docs
-export GOPATH=$(go env GOPATH)
+export GOPATH=$HOME/go
 
 #
 # zsh config

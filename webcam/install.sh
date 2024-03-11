@@ -1,5 +1,4 @@
-# cd "$(dirname "$0")/.."
-# DOTFILES_ROOT=$(pwd -P)
+#!/bin/sh
 
 # source $DOTFILES_ROOT/script/internal/link_file.sh
 

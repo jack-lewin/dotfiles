@@ -1,7 +1,6 @@
-update() {
-  cd "$(dirname "$0")/.."
-  DOTFILES_ROOT=$(pwd -P)
+#!/bin/sh
 
+update() {
   source $DOTFILES_ROOT/script/internal/link_file.sh
 
   echo "> installing dotfiles"

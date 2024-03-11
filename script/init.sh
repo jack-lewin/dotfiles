@@ -1,7 +1,6 @@
-init() {
-  cd "$(dirname "$0")/.."
-  DOTFILES_ROOT=$(pwd -P)
+#!/bin/sh
 
+init() {
   source $DOTFILES_ROOT/script/internal/link_file.sh
 
   echo "> installing dotfiles"

@@ -1,5 +1,4 @@
-cd "$(dirname "$0")/.."
-DOTFILES_ROOT=$(pwd -P)
+#!/bin/sh
 
 # TODO
 # defaults read com.apple.Accessibility KeyRepeatDelay

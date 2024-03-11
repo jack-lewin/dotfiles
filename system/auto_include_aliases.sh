@@ -1,12 +1,11 @@
+#!/bin/sh
+
 # this file does the following:
 #   1. sources every alias.sh file
 #   2. creates an alias for each namespace. e.g. zsh/alias.sh will have a "zsh?" alias
 #      -  this will output the custom-defined aliases
 #      -  it will also run, if present, the dotfiles_info() function from the alias.sh file
 #
-
-cd "$(dirname "$0")/.."
-DOTFILES_ROOT=$(pwd -P)
 
 source $DOTFILES_ROOT/script/internal/alias_info.sh
 
