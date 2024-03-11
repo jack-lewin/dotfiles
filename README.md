@@ -2,17 +2,15 @@
 
 ## Installation
 
-1. Install `git`
-
-2. Install Command Line Tools:
+1. Install Command Line Tools:
 
   `xcode-select --install`
 
-3. Clone this repo:
+2. Clone this repo:
 
   `git clone https://github.com/jack-lewin/dotfiles ~/code/dotfiles`
 
-4. Run the init script:
+3. Run the init script:
 
   `~/code/dotfiles/bin/dot init`
 
