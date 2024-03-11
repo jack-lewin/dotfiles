@@ -1,4 +1,4 @@
 .DS_Store
 **/*.local.symlink
-**/local.sh
+**/*.local.sh
 zsh/oh-my-zsh

@@ -9,7 +9,7 @@
 
 source $DOTFILES_ROOT/script/internal/alias_info.sh
 
-for alias_file in $DOTFILES_ROOT/*/alias.sh
+for alias_file in $DOTFILES_ROOT/*/alias*.sh
 do
   source $alias_file
 

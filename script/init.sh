@@ -27,5 +27,5 @@ init() {
 
   # find the installers and run them iteratively
   echo "> install software via install.sh files"
-  find . -name install.sh | while read installer ; do sh -c "${installer}" ; done
+  find . -name install.sh -maxdepth 2 | while read installer ; do sh -c "${installer}" ; done
 }
