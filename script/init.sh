@@ -19,6 +19,8 @@ init() {
   echo "> installing Homebrew"
   $DOTFILES_ROOT/homebrew/install.sh 2>&1
 
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+
   echo "> brew update"
   brew update
 
