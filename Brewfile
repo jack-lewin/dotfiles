@@ -34,6 +34,7 @@ brew 'yt-dlp'
 
 cask '1password'
 cask '1password/tap/1password-cli'
+cask 'arc'
 cask 'authy'
 cask 'charles'
 cask 'dbeaver-community'

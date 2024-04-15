@@ -24,6 +24,7 @@ plugins=(
     git
     kubectl
     asdf
+    brew
 )
 
 #
