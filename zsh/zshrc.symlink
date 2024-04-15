@@ -22,7 +22,8 @@ plugins=(
     colored-man-pages
     extract
     git
-    # kubectl
+    kubectl
+    asdf
 )
 
 #
@@ -31,6 +32,7 @@ plugins=(
 
 path+=("$HOME/code/dotfiles/bin")
 path+=("$GOPATH/bin")
+path+=("/opt/homebrew/opt/postgresql@13/bin")
 
 #
 # auto-include dotfiles/system
