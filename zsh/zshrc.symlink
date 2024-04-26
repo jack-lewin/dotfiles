@@ -11,6 +11,8 @@ export ZSH=$DOTFILES_ROOT/zsh/oh-my-zsh
 # convenience helper as per golang docs
 export GOPATH=$HOME/go
 
+export PNPM_HOME="$HOME/Library/pnpm"
+
 #
 # zsh config
 #
@@ -25,6 +27,7 @@ plugins=(
     kubectl
     asdf
     brew
+    golang
 )
 
 #
@@ -34,6 +37,7 @@ plugins=(
 path+=("$HOME/code/dotfiles/bin")
 path+=("$GOPATH/bin")
 path+=("/opt/homebrew/opt/postgresql@13/bin")
+path+=("$PNPM_HOME")
 
 #
 # auto-include dotfiles/system
