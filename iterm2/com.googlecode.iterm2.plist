@@ -635,7 +635,7 @@
 			<key>Window Type</key>
 			<integer>0</integer>
 			<key>Working Directory</key>
-			<string>/Users/jack/code</string>
+			<string>~/code</string>
 		</dict>
 	</array>
 	<key>OpenBookmark</key>
