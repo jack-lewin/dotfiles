@@ -1,13 +1,23 @@
+#!/bin/sh
+
 source $DOTFILES_ROOT/script/internal/confirm.sh
 
 link_file() {
-  local src=$1 dst=$2
+  src=$1
+  dst=$2
 
-  if [ -f "$dst" -o -d "$dst" -o -L "$dst" ]
+  already_exists=$([ -f "$dst" -o -d "$dst" -o -L "$dst" ])
+  is_symlinked=$([ -L "$dst" ] && [ "$(readlink "$dst")" = "$src" ])
+
+  if $already_exists && $is_symlinked
+  then
+    return
+
+  elif $already_exists
   then
 
-    warning_message="> warning! there is already a file at $dst
-> overwrite the file?
+    warning_message="> warning! there is already a different file at $dst.
+> do you want to overwrite it?
 > [y] to continue, or any other key to abort.
 "
     continue_message="> overwriting"
@@ -19,6 +29,6 @@ link_file() {
 
   fi
 
-  ln -s "$1" "$2" &> /dev/null
-  echo "> linked $1 to $2"
+  ln -s "$src" "$dst" &> /dev/null
+  echo "> linked $src to $dst"
 }
