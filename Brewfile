@@ -19,7 +19,7 @@ brew 'jq'
 brew 'mongodb-community'
 brew 'mongodb-database-tools'
 brew 'postgresql@14'
-brew 'pnpm'
+# brew 'pnpm' # removed because it's hard installing v7.x via homebrew
 brew 'protobuf'
 brew 'rbenv'
 brew 'ruby-build'
@@ -32,7 +32,7 @@ brew 'yj'
 brew 'yq'
 brew 'yt-dlp'
 
-cask '1password'
+# cask '1password' # managed by kandji
 cask '1password/tap/1password-cli'
 cask 'arc'
 cask 'authy'
@@ -42,19 +42,20 @@ cask 'docker'
 cask 'figma'
 cask 'firefox'
 cask 'gimp'
-cask 'google-chrome'
+# cask 'google-chrome' # managed by kandji
+cask 'hiddenbar'
 cask 'iterm2'
 cask 'linear-linear'
 cask 'loom'
 cask 'mongodb-compass'
 cask 'notion'
 cask 'obs' # webcam
-cask 'pgadmin4'
+cask 'obs-websocket' # for webcam raycast extension
 cask 'postman'
 cask 'raycast'
-cask 'slack'
+# cask 'slack' # managed by kandji
 cask 'spotify'
 cask 'steam'
 cask 'todoist'
 cask 'visual-studio-code'
-cask 'zoom'
+# cask 'zoom' # managed by kandji
