@@ -59,11 +59,15 @@ $DOTFILES_ROOT/macos/clear_dock.sh
 echo "> installing Homebrew"
 $DOTFILES_ROOT/homebrew/install.sh 2>&1
 
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+brew trust --formula hashicorp/tap/terraform
+
 echo "> brew update"
 brew update
 
 echo "> install software via Brewfile"
-brew bundle
+brew bundle --file=$DOTFILES_ROOT/Brewfile
 
 # find the installers and run them iteratively
 echo "> install software via install.sh files"
