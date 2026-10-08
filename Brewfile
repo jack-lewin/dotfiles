@@ -26,14 +26,14 @@ cask 'charles'
 cask 'claude'
 cask 'cursor'
 cask 'dbeaver-community'
-cask 'docker'
+cask 'docker-desktop'
 cask 'figma'
 cask 'firefox'
 cask 'ghostty'
 cask 'gimp'
 # cask 'google-chrome' # managed by kandji
 cask 'hiddenbar'
-cask 'linear-linear'
+cask 'linear'
 cask 'loom'
 cask 'obs' # webcam
 cask 'obs-websocket' # for webcam raycast extension
