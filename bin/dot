@@ -1,10 +1,70 @@
 #!/bin/sh
+#
+# `dot` handles installation, updates, things like that. Run it periodically
+# to make sure you're on the latest and greatest.
 
-for f in $DOTFILES_ROOT/script/*.sh; do source $f; done
+USAGE="~~~~~~~~~~~~~~~
+~~~~~ dot ~~~~~
+~~~~~~~~~~~~~~~
 
-case $1 in
-    init) init ;;
-    reset-dock) $DOTFILES_ROOT/macos/reset_dock.sh ;;
-    update) update ;;
-    *) help ;;
-esac
+usage:
+  dot [command]
+
+available commands:
+  -h | --help   display this message
+  -e | --edit   open dotfiles directory in your editor
+  [no command]  install/symlink dotfiles, set macos defaults, clear dock (optional), install/update software
+"
+
+DOTFILES_BIN_DIR="$(cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd -P)"
+export DOTFILES_ROOT="$(cd "$( dirname "$DOTFILES_BIN_DIR" )" && pwd -P)"
+
+displayUsageAndExit() {
+    echo "$USAGE"
+    exit
+}
+
+while test $# -gt 0; do
+	case "$1" in
+		"-h"|"--help")
+			displayUsageAndExit
+			;;
+		"-e"|"--edit")
+			exec "$EDITOR" "$dotfilesDirectory"
+			exit
+			;;
+		*)
+			echo "Invalid option: $1"
+			displayUsageAndExit
+			;;
+	esac
+	shift
+done
+
+source $DOTFILES_ROOT/script/link_file.sh
+
+echo "> installing dotfiles"
+for src in $(find -H "$DOTFILES_ROOT" -maxdepth 2 -name '*.symlink')
+do
+dst="$HOME/.$(basename "${src%.*}")"
+link_file "$src" "$dst"
+done
+
+echo "> setting MacOS defaults"
+$DOTFILES_ROOT/macos/set_defaults.sh
+
+echo "> clearing dock"
+$DOTFILES_ROOT/macos/clear_dock.sh
+
+echo "> installing Homebrew"
+$DOTFILES_ROOT/homebrew/install.sh 2>&1
+
+echo "> brew update"
+brew update
+
+echo "> install software via Brewfile"
+brew bundle
+
+# find the installers and run them iteratively
+echo "> install software via install.sh files"
+find . -name install.sh -maxdepth 2 | while read installer ; do sh -c "${installer}" ; done

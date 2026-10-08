@@ -1,17 +1,5 @@
 #!/bin/sh
 
-# TODO
-# defaults read com.apple.Accessibility KeyRepeatDelay
-# defaults read com.apple.Accessibility KeyRepeatInterval
-# defaults read com.apple.AppleMultitouchMouse
-# defaults read com.apple.AppleMultitouchTrackpad
-# defaults read com.apple.driver.AppleBluetoothMultitouch.mouse
-# defaults read com.apple.driver.AppleBluetoothMultitouch.trackpad
-
-# defaults write -g AppleFirstWeekday -dict gregorian 2
-# defaults write -g AppleICUForce24HourTime -bool true
-
-
 #
 # General
 #
@@ -76,6 +64,9 @@ defaults write com.apple.finder FXPreferredViewStyle Nlsv
 # Open in home directory by default
 defaults write com.apple.finder NewWindowTarget PfHm
 
+# Don't hide the ~/Library folder
+chflags nohidden ~/Library
+
 # Show all file extensions
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
@@ -102,10 +93,6 @@ defaults write com.apple.coreservices.uiagent CSUIRecommendSafariNextNotificatio
 #
 # Applications
 #
-
-# Configure iTerm2 to load preferences from dotfiles repo
-defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
-defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "$DOTFILES_ROOT/iterm2"
 
 # Replace Spotlight with Raycast
 defaults write com.raycast.macos raycastGlobalHotkey -string "Command-49"

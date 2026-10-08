@@ -2,5 +2,5 @@
 
 if test $(which rbenv)
 then
-  rbenv init
+  rbenv init zsh
 fi

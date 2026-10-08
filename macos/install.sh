@@ -1,1 +1,2 @@
-exec "$(dirname "$0")/update.sh"
+echo "> sudo softwareupdate -i -a"
+sudo softwareupdate -i -a

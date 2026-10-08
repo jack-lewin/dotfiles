@@ -12,7 +12,7 @@
 
 3. Run the init script:
 
-  `~/code/dotfiles/bin/dot init`
+  `~/code/dotfiles/bin/dot`
 
   This will do the following:
 

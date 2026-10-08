@@ -1,11 +1,11 @@
 #!/bin/sh
 
-source $DOTFILES_ROOT/script/internal/confirm.sh
+source $DOTFILES_ROOT/script/confirm.sh
 
 warning_message="> warning! this will remove all the apps from your Dock
 > [y] to continue, or any other key to abort.
 "
-continue_message="> resetting dock"
+continue_message="> clearing dock"
 abort_message="> aborting"
 
 if ( confirm "$warning_message" "$continue_message" "$abort_message" -eq 0 ) then 

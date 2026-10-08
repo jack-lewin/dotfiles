@@ -1,6 +1,6 @@
 #!/bin/sh
 
-source $DOTFILES_ROOT/script/internal/confirm.sh
+source $DOTFILES_ROOT/script/confirm.sh
 
 link_file() {
   src=$1

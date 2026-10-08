@@ -1,5 +1,3 @@
-#!/bin/sh
-
 #
 # global vars
 #
@@ -8,16 +6,13 @@
 export DOTFILES_ROOT=$HOME/code/dotfiles
 export ZSH=$DOTFILES_ROOT/zsh/oh-my-zsh
 
-# convenience helper as per golang docs
-export GOPATH=$HOME/go
-
 export PNPM_HOME="$HOME/Library/pnpm"
 
 #
 # zsh config
 #
 
-ZSH_CUSTOM=$HOME/code/dotfiles/zsh/custom
+ZSH_CUSTOM=$DOTFILES_ROOT/zsh/custom
 ZSH_THEME="jack"
 
 plugins=(
@@ -25,19 +20,21 @@ plugins=(
     extract
     git
     kubectl
-    asdf
-    brew
-    golang
 )
 
 #
 # path
 #
 
-path+=("$HOME/code/dotfiles/bin")
-path+=("$GOPATH/bin")
-path+=("/opt/homebrew/opt/postgresql@13/bin")
-path+=("$PNPM_HOME")
+path=(
+  /opt/homebrew/bin
+  "$DOTFILES_ROOT/bin"
+  "$HOME/go/bin"
+  /opt/homebrew/opt/postgresql@16/bin
+  "$PNPM_HOME"
+  "$HOME/Library/Python/3.9/bin"
+  /opt/homebrew/opt/go@1.27/bin
+)
 
 #
 # auto-include dotfiles/system
@@ -53,7 +50,6 @@ source $ZSH/oh-my-zsh.sh
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 #
 # fonoa

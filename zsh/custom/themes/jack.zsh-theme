@@ -28,20 +28,12 @@ function _get_pwd() {
 }
 
 function _git_branch() {
-  branch=""
-
-  case "$(git_current_branch)" in
-    "") ;;
-    *)  branch=" ($(git_current_branch))" ;;
-  esac
-
-  echo $branch
+  local branch=$(git_current_branch)
+  [[ -n "$branch" ]] && echo " ($branch)"
 }
 
 function _git_branch_color() {
-  local STATUS=$(__git_prompt_git status --porcelain 2> /dev/null | tail -n 1)
-
-  if [[ -n $STATUS ]]; then
+  if [[ -n "$(__git_prompt_git status --porcelain 2>/dev/null)" ]]; then
     echo "$(_red)"
   else
     echo "$(_green)"
