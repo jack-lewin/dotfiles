@@ -9,11 +9,11 @@ link_file() {
   already_exists=$([ -f "$dst" -o -d "$dst" -o -L "$dst" ])
   is_symlinked=$([ -L "$dst" ] && [ "$(readlink "$dst")" = "$src" ])
 
-  if $already_exists && $is_symlinked
+  if [ "$already_exists" = true ] && [ "$is_symlinked" = true ]
   then
     return
 
-  elif $already_exists
+  elif [ "$already_exists" = true ]
   then
 
     warning_message="> warning! there is already a different file at $dst.
