@@ -10,6 +10,10 @@
 
 [push]
     default = upstream
+    autoSetupRemote = true
+
+[url "git@github.com:"]
+    insteadOf = https://github.com/
 
 [user]
     name = Jack Lewin
