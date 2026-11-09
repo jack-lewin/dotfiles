@@ -8,6 +8,8 @@ export ZSH=$DOTFILES_ROOT/zsh/oh-my-zsh
 
 export PNPM_HOME="$HOME/Library/pnpm"
 
+export ASDF_DATA_DIR="$HOME/.asdf"
+
 #
 # zsh config
 #
@@ -34,6 +36,7 @@ path+=(
   "$PNPM_HOME"
   "$HOME/Library/Python/3.9/bin"
   /opt/homebrew/opt/go@1.27/bin
+  "$ASDF_DATA_DIR/shims"
 )
 
 #
