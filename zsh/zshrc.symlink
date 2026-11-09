@@ -26,7 +26,7 @@ plugins=(
 # path
 #
 
-path=(
+path+=(
   /opt/homebrew/bin
   "$DOTFILES_ROOT/bin"
   "$HOME/go/bin"
@@ -55,4 +55,4 @@ export NVM_DIR="$HOME/.nvm"
 # fonoa
 #
 
-source $DOTFILES_ROOT/fonoa/env.sh
+[ -f "$DOTFILES_ROOT/fonoa/env.sh" ] && source "$DOTFILES_ROOT/fonoa/env.sh"
