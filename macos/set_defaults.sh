@@ -95,8 +95,6 @@ defaults write com.apple.coreservices.uiagent CSUIRecommendSafariNextNotificatio
 #
 
 # Replace Spotlight with Raycast
-defaults write com.raycast.macos raycastGlobalHotkey -string "Command-49"
-defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 64 '{ "enabled"="0"; }'
-
-# Other Raycast settings
-defaults write com.raycast.macos raycastPreferredTheme -string "raycast-dark"
+defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 64 \
+  '<dict><key>enabled</key><false/><key>value</key><dict><key>parameters</key><array><integer>32</integer><integer>49</integer><integer>1048576</integer></array><key>type</key><string>standard</string></dict></dict>'
+/System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u

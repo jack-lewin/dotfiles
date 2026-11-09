@@ -24,6 +24,12 @@ displayUsageAndExit() {
     exit
 }
 
+FIRST_RUN=false
+if test ! $(which brew)
+then
+	FIRST_RUN=true
+fi
+
 while test $# -gt 0; do
 	case "$1" in
 		"-h"|"--help")
@@ -53,8 +59,10 @@ done
 echo "> setting MacOS defaults"
 $DOTFILES_ROOT/macos/set_defaults.sh
 
-echo "> clearing dock"
-$DOTFILES_ROOT/macos/clear_dock.sh
+if [ "$FIRST_RUN" = true ]; then
+	echo "> clearing dock"
+	$DOTFILES_ROOT/macos/clear_dock.sh
+fi
 
 echo "> installing Homebrew"
 $DOTFILES_ROOT/homebrew/install.sh 2>&1
@@ -72,3 +80,10 @@ brew bundle --file=$DOTFILES_ROOT/Brewfile
 # find the installers and run them iteratively
 echo "> install software via install.sh files"
 find . -name install.sh -maxdepth 2 | while read installer ; do sh -c "${installer}" ; done
+
+if [ "$FIRST_RUN" = true ]; then
+	echo ""
+	echo ""
+	echo ""
+	echo "> Done! Note: you need to set the Raycast global hotkey to Cmd+Space. Open Raycast > Settings to do this."
+fi
